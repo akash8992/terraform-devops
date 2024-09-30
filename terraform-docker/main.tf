@@ -14,6 +14,7 @@ resource "docker_image" "nginx" {
   keep_locally = false
 }
 
+
 resource "docker_container" "nginx" {
   image = docker_image.nginx.latest
   name  = "nginx-tf"
