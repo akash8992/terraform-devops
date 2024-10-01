@@ -13,14 +13,14 @@ provider "aws" {
 }
 
 resource "aws_instance" "my_ec2_instance" {
-  count = 2
+  count = 4
   ami           = "ami-0c2af51e265bd5e0e"
   instance_type = "t2.micro"
   subnet_id     = "subnet-0cb4928670fdbbef0"  # Add the subnet ID here
   associate_public_ip_address = true  # Automatically assign a public IP
 
   tags = {
-    Name = "terraformBatchInstance"
+    Name = "terraformBatchInstance- ${count.index}"
   }
 }
 
